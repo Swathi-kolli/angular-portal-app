@@ -3,9 +3,9 @@ const USE_INTERACTION_CODE = process.env.USE_INTERACTION_CODE || false;
 
 export default {
   oidc: {
-    clientId: `${CLIENT_ID}`,
-    issuer: `${ISSUER}`,
-    redirectUri: 'http://localhost:8080/login/callback',
+    clientId: `0oa51p93m6G9ziTXo5d7`,
+    issuer: `https://dev-14024911.okta.com/oauth2/default`,
+    redirectUri: 'http://localhost:8081/login/callback',
     scopes: ['openid', 'profile', 'email'],
     testing: {
       disableHttpsCheck: `${OKTA_TESTING_DISABLEHTTPSCHECK}`

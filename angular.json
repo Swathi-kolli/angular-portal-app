@@ -1,9 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "f1179c51-c468-4a45-92c9-38b4c6a8a024"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "okta-hosted-login": {
+    "custom-login": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -20,7 +23,7 @@
             "customWebpackConfig": {
               "path": "extra-webpack.config.js"
             },
-            "outputPath": "dist/okta-hosted-login",
+            "outputPath": "dist/custom-login",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -32,7 +35,8 @@
             ],
             "styles": [
               "src/styles.css",
-              "node_modules/semantic-ui-css/semantic.min.css"
+              "node_modules/semantic-ui-css/semantic.min.css",
+              "node_modules/@okta/okta-signin-widget/dist/css/okta-sign-in.min.css"
             ],
             "scripts": []
           },
@@ -57,19 +61,19 @@
         "serve": {
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "browserTarget": "okta-hosted-login:build",
-            "port": 8080
+            "browserTarget": "custom-login:build",
+            "port": 8081
           },
           "configurations": {
             "production": {
-              "browserTarget": "okta-hosted-login:build:production"
+              "browserTarget": "custom-login:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "okta-hosted-login:build"
+            "browserTarget": "custom-login:build"
           }
         },
         "test": {
@@ -85,13 +89,14 @@
             ],
             "styles": [
               "src/styles.css",
-              "node_modules/semantic-ui-css/semantic.min.css"
+              "node_modules/semantic-ui-css/semantic.min.css",
+              "node_modules/@okta/okta-signin-widget/dist/css/okta-sign-in.min.css"
             ],
             "scripts": []
           }
         },
         "lint": {
-          "builder": "@angular-builders/custom-webpack:lint",
+          "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
               "tsconfig.app.json",
@@ -106,5 +111,5 @@
       }
     }
   },
-  "defaultProject": "okta-hosted-login"
+  "defaultProject": "custom-login"
 }
